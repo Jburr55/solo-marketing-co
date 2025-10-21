@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solo Marketing Co. — Performance Affiliate Marketing</title>
+  <meta name="description" content="Solo Marketing Co. builds and scales performance‑based affiliate programs. St Louis, MO — Founded 2025." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="SOLOLOGO.png">
+  <style>
+    :root{
+      --blue:#5aa9ff; --blue-2:#2f7ae5; --ink:#0b0c10; --text:#0f1422; --muted:#667289; --panel:#0f1422; --gray:#f3f6fb; --white:#fff; --ring: rgba(90,169,255,.35);
+      --card: rgba(255,255,255,.75);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--text);background:linear-gradient(180deg,var(--white),var(--gray));}
+    @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
+    img{max-width:100%;display:block}
+    a{color:var(--blue-2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1180px;margin-inline:auto;padding:0 20px}
+
+    /* BACKDROP */
+    .bgwrap{position:fixed;inset:0;z-index:-1;overflow:hidden;}
+    .bg-grid{position:absolute;inset:-200px;background:
+      radial-gradient(700px 400px at 85% -10%, rgba(90,169,255,.18), transparent 60%),
+      radial-gradient(600px 400px at 10% 110%, rgba(47,122,229,.14), transparent 60%),
+      linear-gradient(180deg, #fff, #f4f7fc);
+    }
+    .bg-lines{position:absolute;inset:0;background: repeating-linear-gradient( to bottom, rgba(47,122,229,.05) 0, rgba(47,122,229,.05) 1px, transparent 1px, transparent 36px ); mask-image: radial-gradient(1200px 800px at 50% -10%, #000 40%, transparent 70%);} 
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #e7ecf3}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:60px;height:60px;border-radius:14px;box-shadow:0 10px 30px -18px rgba(47,122,229,.55)}
+    .brand .name{font-weight:900;line-height:1}
+    .brand .tag{font-size:12px;color:var(--muted);line-height:1}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{color:var(--text);font-weight:600;padding:6px 8px;border-radius:10px}
+    .menu a.active{background:#eaf3ff;color:#123a6b}
+    .cta{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,var(--blue),#9bd1ff);border:1px solid #cfe6ff;color:#04121f;font-weight:800;box-shadow:0 6px 18px -8px rgba(47,122,229,.35)}
+    #hamburger{display:none;border:1px solid #d6deea;background:#fff;border-radius:10px;padding:8px 10px;font-weight:800}
+    @media(max-width:900px){
+      #hamburger{display:block}
+      .menu{display:none;position:absolute;right:16px;top:70px;background:#fff;border:1px solid #e7ecf3;border-radius:12px;box-shadow:0 20px 40px -24px rgba(16,27,45,.3);flex-direction:column;padding:10px;min-width:220px}
+      .menu.open{display:flex}
+    }
+
+    /* HERO */
+    .hero{padding:80px 0}
+    .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center}
+    .eyebrow{display:inline-block;color:var(--blue-2);font-weight:800;letter-spacing:.08em}
+    h1{font-size:clamp(28px,4.8vw,56px);line-height:1.05;margin:10px 0 10px}
+    .sub{color:#4f5c74;max-width:62ch}
+    .hero-card{position:relative;border-radius:22px;padding:24px;background:var(--card);border:1px solid #e7ecf3;backdrop-filter: blur(8px);box-shadow:0 14px 40px -24px rgba(16,27,45,.35)}
+    .hero-logo{width:min(420px,95%);border-radius:18px;animation:float 8s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+
+    /* SECTIONS */
+    .section{padding:60px 0}
+    .section h2{font-size:clamp(22px,3.2vw,36px);margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:16px}
+    .features{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+
+    /* CARDS */
+    .card{position:relative;background:rgba(255,255,255,.85);border:1px solid #e7ecf3;border-radius:18px;padding:18px;transition:transform .3s ease, box-shadow .3s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 18px 50px -28px rgba(16,27,45,.45)}
+    .g-border{background:linear-gradient(#fff,#fff) padding-box, linear-gradient(135deg, rgba(90,169,255,.6), rgba(47,122,229,.45)) border-box; border:1px solid transparent}
+
+    /* COUNTERS */
+    .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .kpi .big{font-size:40px;font-weight:900}
+
+    /* PRICING */
+    .pricing{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .price .tag{display:inline-block;background:#eef6ff;border:1px solid #d8eaff;color:#225a9e;padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px}
+    .price ul{list-style:none;padding:0;margin:10px 0 0}
+    .price li{display:flex;gap:8px;align-items:flex-start;margin:6px 0}
+
+    /* FAQ */
+    details{border:1px solid #e7ecf3;border-radius:14px;background:#fff;padding:14px}
+    details+details{margin-top:12px}
+    summary{cursor:pointer;font-weight:700}
+
+    /* UTIL */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease}
+    .reveal.visible{opacity:1;transform:none}
+    .sticky-cta{position:fixed;bottom:16px;right:16px;z-index:9999}
+    #backToTop{position:fixed;bottom:16px;left:16px;border:1px solid #d6deea;background:#fff;padding:10px 12px;border-radius:12px;font-weight:800;display:none}
+
+    /* FOOTER */
+    .footer{margin-top:24px;border-top:1px dashed #dde5f1;padding:18px 0;color:#6a768d}
+  </style>
+</head>
+<body>
+  <div class="bgwrap" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-lines"></div>
+  </div>
+
+  <header class="nav" role="navigation">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="SOLOLOGO.png" alt="Solo Marketing Co. logo">
+        <div>
+          <div class="name">Solo Marketing Co.</div>
+          <div class="tag">Performance Affiliate Marketing</div>
+        </div>
+      </div>
+      <nav class="menu" id="menu">
+        <a href="#benefits">Benefits</a>
+        <a href="#how">How</a>
+        <a href="#proof">Proof</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="cta">Get Started</a>
+      </nav>
+      <button id="hamburger" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="reveal">
+          <span class="eyebrow">PERFORMANCE MARKETING</span>
+          <h1 id="hero-title">Acquire customers, not clicks.</h1>
+          <p class="sub">No retainers. Only pay for results.</p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+            <a class="cta" href="#contact">Free Strategy Call</a>
+            <a class="card g-border" href="#benefits" style="padding:12px 14px;font-weight:700">How it works →</a>
+          </div>
+        </div>
+        <div class="hero-card reveal" aria-hidden="true">
+          <img class="hero-logo" src="SOLOLOGO.png" alt="Solo Marketing Co. logo large" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- KPI STRIP -->
+    <section class="section" aria-label="Key results">
+      <div class="kpi">
+        <div class="card g-border reveal"><div class="big" data-count="32">0%</div><div class="muted">AOV lift (illustrative)</div></div>
+        <div class="card g-border reveal"><div class="big" data-count="3.1">0×</div><div class="muted">Program ROAS</div></div>
+        <div class="card g-border reveal"><div class="big" data-count="27">0%</div><div class="muted">Lower CAC vs paid</div></div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section id="benefits" class="section" aria-labelledby="benefits-title">
+      <h2 id="benefits-title">Benefits</h2>
+      <div class="grid features" style="margin-top:10px">
+        <article class="card reveal"><h3>Pay for outcomes</h3><p class="muted">Commission only on a verified sale/lead.</p></article>
+        <article class="card reveal"><h3>Lower CAC</h3><p class="muted">Aligned spend vs value.</p></article>
+        <article class="card reveal"><h3>Creator trust</h3><p class="muted">Warm recommendations convert.</p></article>
+        <article class="card reveal"><h3>Clear attribution</h3><p class="muted">First‑party events + integrations.</p></article>
+        <article class="card reveal"><h3>Predictable margins</h3><p class="muted">Commission caps & approval rules.</p></article>
+        <article class="card reveal"><h3>New audiences</h3><p class="muted">Newsletters, SEO sites, communities.</p></article>
+      </div>
+    </section>
+
+    <!-- HOW -->
+    <section id="how" class="section" aria-labelledby="how-title">
+      <h2 id="how-title">How</h2>
+      <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+        <div class="card reveal"><h3>Build</h3><p class="muted">Tiers, policies, assets, tracking.</p></div>
+        <div class="card reveal"><h3>Recruit</h3><p class="muted">Creators, publishers, newsletters.</p></div>
+        <div class="card reveal"><h3>Launch</h3><p class="muted">Briefs, codes, landing tests.</p></div>
+        <div class="card reveal"><h3>Scale</h3><p class="muted">Bonuses, exclusives, fraud control.</p></div>
+      </div>
+    </section>
+
+    <!-- PROOF / METRICS PANEL -->
+    <section id="proof" class="section" aria-labelledby="proof-title">
+      <div class="card g-border reveal" style="padding:24px">
+        <h2 id="proof-title">Proof</h2>
+        <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:8px">
+          <div class="card" style="background:#0f1524;border-color:rgba(255,255,255,.1);color:#dfe7f3"><h3 style="margin:0">AOV</h3><p style="font-size:32px;font-weight:800;margin:6px 0">+<span data-count="32">0</span>%</p><p class="muted">Illustrative lift.</p></div>
+          <div class="card" style="background:#0f1524;border-color:rgba(255,255,255,.1);color:#dfe7f3"><h3 style="margin:0">ROAS</h3><p style="font-size:32px;font-weight:800;margin:6px 0"><span data-count="3.1">0</span>×</p><p class="muted">Aligned incentives.</p></div>
+          <div class="card" style="background:#0f1524;border-color:rgba(255,255,255,.1);color:#dfe7f3"><h3 style="margin:0">CAC</h3><p style="font-size:32px;font-weight:800;margin:6px 0">−<span data-count="27">0</span>%</p><p class="muted">Vs blended paid.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing" class="section" aria-labelledby="pricing-title">
+      <h2 id="pricing-title">Pricing</h2>
+      <div class="grid pricing" style="margin-top:10px">
+        <div class="card price reveal">
+          <span class="tag">Management</span>
+          <h3 style="margin:8px 0 6px">Month‑to‑month</h3>
+          <ul>
+            <li>✔ Build & audits</li>
+            <li>✔ Recruiting & activation</li>
+            <li>✔ Briefs & creative</li>
+          </ul>
+        </div>
+        <div class="card price reveal">
+          <span class="tag">Performance</span>
+          <h3 style="margin:8px 0 6px">CPS / CPL</h3>
+          <ul>
+            <li>✔ Transparent approvals</li>
+            <li>✔ Fraud prevention</li>
+            <li>✔ LTV / Payback aware</li>
+          </ul>
+        </div>
+        <div class="card price reveal">
+          <span class="tag">Add‑ons</span>
+          <h3 style="margin:8px 0 6px">As needed</h3>
+          <ul>
+            <li>✔ Landing pages</li>
+            <li>✔ Whitelisting</li>
+            <li>✔ Analytics</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+      <div class="grid" style="grid-template-columns:1.1fr 1fr;gap:18px">
+        <div class="card reveal">
+          <ul style="margin:0">
+            <li><b>Founded:</b> 2025</li>
+            <li><b>HQ:</b> St Louis, MO</li>
+            <li><b>Mission:</b> Turn word‑of‑mouth into measurable revenue with clean tracking and partners who convert.</li>
+          </ul>
+        </div>
+        <div class="card reveal" style="display:grid;place-items:center">
+          <img src="SOLOLOGO.png" alt="Solo Marketing Co. emblem" style="width:240px;border-radius:16px">
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <div class="grid" style="grid-template-columns:1fr 1fr;gap:18px">
+        <form class="card reveal" id="lead-form" onsubmit="return submitLead(event)" novalidate>
+          <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off">
+          <label>Full name<br><input class="input" type="text" name="name" required style="width:100%;padding:12px;border-radius:12px;border:1px solid #d6deea;background:#f8fbff"></label><br>
+          <label>Email<br><input class="input" type="email" name="email" required style="width:100%;padding:12px;border-radius:12px;border:1px solid #d6deea;background:#f8fbff"></label><br>
+          <label>Message<br><textarea class="input" name="message" rows="5" style="width:100%;padding:12px;border-radius:12px;border:1px solid #d6deea;background:#f8fbff"></textarea></label><br>
+          <button class="cta" type="submit">Request Call</button>
+          <span id="thanks" style="margin-left:10px;color:#1a7f3b;display:none">Thanks! We’ll be in touch.</span>
+          <p class="muted" style="font-size:12px;margin-top:8px">Prefer email? <a href="mailto:shayneeh2006@gmail.com">shayneeh2006@gmail.com</a> • <a href="tel:+16365151631">636‑515‑1631</a></p>
+        </form>
+        <div class="card reveal">
+          <h3>Details</h3>
+          <p><b>Solo Marketing Co.</b></p>
+          <p><b>Email:</b> <a href="mailto:shayneeh2006@gmail.com">shayneeh2006@gmail.com</a><br>
+             <b>Phone:</b> <a href="tel:+16365151631">636‑515‑1631</a></p>
+          <div class="card" style="background:#f6fbff;border:1px dashed #cfe6ff"><b>Calendar:</b> Add your booking link here to embed.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center">
+        <div style="display:flex;align-items:center;gap:10px">
+          <img src="SOLOLOGO.png" alt="Solo Marketing Co. logo small" style="height:28px;width:28px;border-radius:8px"> 
+          <div>© <span id="year"></span> Solo Marketing Co. • All rights reserved.</div>
+        </div>
+        <div style="display:flex;gap:14px"><a href="#">Privacy</a><a href="#">Terms</a></div>
+      </div>
+    </footer>
+
+    <button id="backToTop" aria-label="Back to top">↑</button>
+    <a class="cta sticky-cta" href="#contact" aria-label="Open contact section">Start a free strategy call</a>
+  </main>
+
+  <script>
+    // YEAR
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // MOBILE MENU
+    const ham = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    ham.addEventListener('click',()=> menu.classList.toggle('open'));
+    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+    // ACTIVE LINK HIGHLIGHT
+    const sections = ['benefits','how','proof','pricing','about','contact'];
+    const links = Array.from(menu.querySelectorAll('a')).filter(a=>sections.some(id=>a.getAttribute('href')==='#'+id));
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const id = e.target.id;
+          links.forEach(l=>l.classList.toggle('active', l.getAttribute('href')==='#'+id));
+        }
+      });
+    },{rootMargin:'-50% 0px -45% 0px',threshold:0});
+    sections.forEach(id=>{ const el=document.getElementById(id); if(el) spy.observe(el);});
+
+    // REVEAL ON SCROLL
+    const revObs = new IntersectionObserver((entries)=>{entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); revObs.unobserve(e.target);} });},{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+    // BACK TO TOP
+    const topBtn = document.getElementById('backToTop');
+    window.addEventListener('scroll',()=>{ topBtn.style.display = window.scrollY>500 ? 'block' : 'none'; });
+    topBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+    // COUNTERS
+    function animateCount(node){
+      const target = parseFloat(node.dataset.count || '0');
+      const isPercent = node.textContent.includes('%');
+      const isTimes = node.textContent.includes('×');
+      let start = 0; const dur = 900; const t0 = performance.now();
+      function step(t){
+        const p = Math.min(1,(t-t0)/dur);
+        const val = (start + (target-start)*p);
+        node.textContent = isTimes ? val.toFixed(1)+'×' : isPercent ? Math.round(val)+'%' : (target%1?val.toFixed(1):Math.round(val));
+        if(p<1) requestAnimationFrame(step)
+      }
+      requestAnimationFrame(step);
+    }
+    const counters = document.querySelectorAll('[data-count]');
+    const cObs = new IntersectionObserver((ents)=>{ents.forEach(e=>{if(e.isIntersecting){ animateCount(e.target); cObs.unobserve(e.target); }})},{threshold:.6});
+    counters.forEach(n=>cObs.observe(n));
+
+    // FORM (front‑end validation + demo submit)
+    function submitLead(e){
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form));
+      if((data._honeypot||'').length){ return false; } // bot trap
+      if(!data.name || !data.email){ alert('Please include your name and email.'); return false; }
+      // PRODUCTION: replace below with Formspree/Netlify endpoint
+      // fetch('https://formspree.io/f/XXXX', { method:'POST', body:new FormData(form) });
+      const thanks = document.getElementById('thanks');
+      if(thanks){ thanks.style.display='inline'; setTimeout(()=>thanks.style.display='none',3200); }
+      form.reset();
+      return false;
+    }
+    window.submitLead = submitLead;
+  </script>
+</body>
+</html>
